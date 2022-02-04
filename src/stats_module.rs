@@ -21,3 +21,12 @@ pub fn calc_std(xs: &Vec<f64>) -> f64 {
     std
 }
 
+pub fn norm_dist_pdf(x: &f64) -> f64 {
+    use std;
+    let a: f64 = std::f64::consts::PI * 2.0;
+    let b: f64 = a.sqrt();
+    let c: f64 = 1. / b;
+    let d: f64 = (- (x * x) / 2.).exp();
+    c * d
+}
+

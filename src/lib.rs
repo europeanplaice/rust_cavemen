@@ -19,5 +19,12 @@ mod test {
         assert!(stats_module::calc_std(&vec![3., 4., 5.,]) - 0.8164 < 0.0001);
         assert!(stats_module::calc_std(&vec![0., 0., 0.,]) == 0.);
     }
+
+    #[test]
+    fn test_standard_norm_dist(){
+        assert_eq!(stats_module::norm_dist_pdf(&0.), 0.3989422804014327);
+        assert_eq!(stats_module::norm_dist_pdf(&1.), 0.24197072451914337);
+        assert_eq!(stats_module::norm_dist_pdf(&-1.), 0.24197072451914337);
+    }
 }
 
