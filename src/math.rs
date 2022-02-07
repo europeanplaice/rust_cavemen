@@ -1,5 +1,10 @@
-pub fn factrial(n: &u64) -> u64 {
-    let mut result: u64 = 1;
+/// Returns the factrial of an integer.
+/// ```
+/// use rust_cavemen::factrial;
+/// assert_eq!(factrial(&4), 24);
+/// ```
+pub fn factrial(n: &u32) -> u32 {
+    let mut result: u32 = 1;
     for i in 1..n + 1 {
         result *= i;
     }
