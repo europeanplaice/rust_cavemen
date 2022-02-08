@@ -24,13 +24,18 @@ pub fn calc_std(xs: &Vec<f32>) -> f32 {
     std
 }
 
-/// Returns the pdf of Normal Distribution.
-pub fn norm_dist_pdf(x: &f32) -> f32 {
-    let a: f32 = std::f32::consts::PI * 2.0;
-    let b: f32 = a.sqrt();
-    let c: f32 = 1. / b;
-    let d: f32 = (- (x * x) / 2.).exp();
-    c * d
+
+pub mod normal_distribution{
+    //! this is a module for Normal Distribution.
+    
+    /// Returns the pdf of Normal Distribution.
+    pub fn norm_dist_pdf(x: &f32) -> f32 {
+        let a: f32 = std::f32::consts::PI * 2.0;
+        let b: f32 = a.sqrt();
+        let c: f32 = 1. / b;
+        let d: f32 = (- (x * x) / 2.).exp();
+        c * d
+    }
 }
 
 
@@ -101,9 +106,9 @@ mod test {
 
     #[test]
     fn test_standard_norm_dist(){
-        assert_eq!(norm_dist_pdf(&0.), 0.3989422804014327);
-        assert_eq!(norm_dist_pdf(&1.), 0.24197073);
-        assert_eq!(norm_dist_pdf(&-1.), 0.24197073);
+        assert_eq!(normal_distribution::norm_dist_pdf(&0.), 0.3989422804014327);
+        assert_eq!(normal_distribution::norm_dist_pdf(&1.), 0.24197073);
+        assert_eq!(normal_distribution::norm_dist_pdf(&-1.), 0.24197073);
     }
 
     #[test]
